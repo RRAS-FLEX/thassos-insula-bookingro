@@ -32,11 +32,12 @@ function OffersPage() {
             Free ferry tickets with every booking
           </h1>
           <p className="mt-4 max-w-2xl text-muted-foreground">
-            Book any participating hotel below and Thassos HORECA covers your Keramoti–Thassos ferry tickets — one round trip per booking, for the whole party.
+            Book any participating hotel below and Thassos HORECA covers your ferry tickets — one round trip per booking, for the whole party.
           </p>
           <ul className="mt-6 grid max-w-2xl gap-2 text-sm text-muted-foreground sm:grid-cols-2">
             {[
               "Valid on Keramoti ⇆ Thassos (Limenas) route",
+              "Valid on Kavala ⇆ Prinos route",
               "Minimum stay: 6 nights",
               "Applies to participating hotels only",
             ].map((t) => (

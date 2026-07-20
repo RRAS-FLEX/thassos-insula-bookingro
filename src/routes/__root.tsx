@@ -12,6 +12,7 @@ import { Menu, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import logoAsset from "../assets/thassos-horeca-logo.jpg.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -26,8 +27,8 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary font-display text-lg font-bold text-primary-foreground">T</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logoAsset.url} alt="Thassos HORECA logo" className="h-11 w-11 rounded-full object-cover bg-black" />
           <span className="font-display text-lg font-semibold tracking-tight">
             Thassos <span className="text-primary">HORECA</span>
           </span>

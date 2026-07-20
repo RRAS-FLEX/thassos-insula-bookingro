@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
@@ -31,7 +31,7 @@ function ContactPage() {
           <Info icon={Phone} title="Phone / WhatsApp" value="+30 25930 00000" href="tel:+302593000000" />
           <Info icon={Mail} title="Email" value="booking@thassos-horeca.gr" href="mailto:booking@thassos-horeca.gr" />
           <Info icon={MapPin} title="Address" value="Limenas, 64004 Thassos, Greece" />
-          <Info icon={Clock} title="Hours" value="Mon–Sun · 09:00–21:00 (EET)" />
+          
         </div>
 
         <form
