@@ -37,8 +37,7 @@ function OffersPage() {
           <ul className="mt-6 grid max-w-2xl gap-2 text-sm text-muted-foreground sm:grid-cols-2">
             {[
               "Valid on Keramoti ⇆ Thassos (Limenas) route",
-              "Round trip for up to 4 passengers per booking",
-              "Minimum stay: 3 nights",
+              "Minimum stay: 6 nights",
               "Applies to participating hotels only",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2">
