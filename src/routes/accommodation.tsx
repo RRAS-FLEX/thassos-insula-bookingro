@@ -8,10 +8,10 @@ export const Route = createFileRoute("/accommodation")({
   component: AccommodationPage,
   head: () => ({
     meta: [
-      { title: "Thassos Accommodation — 200+ Hotels & Studios | Thassos HORECA" },
-      { name: "description", content: "Browse 200+ hotels, studios and villas across Thassos Island." },
-      { property: "og:title", content: "Thassos Accommodation — 200+ Hotels" },
-      { property: "og:description", content: "200+ curated hotels and studios across Thassos Island." },
+      { title: "Thassos Accommodation — Hotels & Studios | Thassos HORECA" },
+      { name: "description", content: "Browse hotels, studios and villas across Thassos Island." },
+      { property: "og:title", content: "Thassos Accommodation — Hotels" },
+      { property: "og:description", content: "Curated hotels and studios across Thassos Island." },
     ],
     links: [{ rel: "canonical", href: "/accommodation" }],
   }),
@@ -38,7 +38,7 @@ function AccommodationPage() {
       <header className="mb-6">
         <h1 className="font-display text-3xl font-bold sm:text-4xl">Thassos Accommodation</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Browse {HOTELS.length}+ hotels, studios and villas across Thassos. Contact each property directly — no booking fees.
+          Browse hotels, studios and villas across Thassos. Contact each property directly — no booking fees.
         </p>
       </header>
 

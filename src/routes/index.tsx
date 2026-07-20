@@ -52,8 +52,7 @@ function Index() {
         ))}
       </div>
 
-      <div className="mt-16 grid w-full max-w-4xl grid-cols-3 gap-4 text-center">
-        <Stat n="200+" label="Hotels & studios" />
+      <div className="mt-16 grid w-full max-w-4xl grid-cols-2 gap-4 text-center">
         <Stat n="12" label="Towns & beaches" />
         <Stat n="Free" label="Ferry tickets" />
       </div>
