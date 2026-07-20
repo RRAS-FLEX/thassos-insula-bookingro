@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "Thassos Accommodation by Thassos HORECA" },
       { name: "description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
       { property: "og:title", content: "Thassos Accommodation by Thassos HORECA" },
-      { property: "og:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking." },
+      { property: "og:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
