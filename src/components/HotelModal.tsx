@@ -34,11 +34,7 @@ export function HotelModal({ hotel, onClose }: { hotel: Hotel | null; onClose: (
                 <div className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> {hotel.email}</div>
                 <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> {hotel.town}, Thassos, Greece</div>
               </div>
-              <div className="mt-6 flex items-center justify-between">
-                <div>
-                  <div className="text-xs text-muted-foreground">Starting from</div>
-                  <div className="font-display text-2xl font-semibold text-primary">€{hotel.priceFrom}<span className="text-sm text-muted-foreground">/night</span></div>
-                </div>
+              <div className="mt-6 flex items-center justify-end">
                 <a
                   href={`mailto:${hotel.email}?subject=Booking%20request%20-%20${encodeURIComponent(hotel.name)}`}
                   className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"

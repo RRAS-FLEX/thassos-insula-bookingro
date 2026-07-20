@@ -42,12 +42,7 @@ export function HotelCard({
           <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-primary" /> {hotel.phone}</span>
           <span className="flex items-center gap-1.5 truncate"><Mail className="h-3.5 w-3.5 text-primary" /> {hotel.email}</span>
         </div>
-        <div className="mt-4 flex items-center justify-between">
-          <div className="text-sm">
-            <span className="text-muted-foreground">from </span>
-            <span className="font-semibold text-foreground">€{hotel.priceFrom}</span>
-            <span className="text-muted-foreground">/night</span>
-          </div>
+        <div className="mt-4 flex items-center justify-end">
           <button
             onClick={() => onOpen(hotel)}
             className="rounded-full bg-primary px-3.5 py-1.5 text-xs font-semibold text-primary-foreground transition hover:bg-primary/90"
