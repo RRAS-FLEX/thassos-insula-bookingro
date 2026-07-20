@@ -7,9 +7,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Thassos Accommodation by Thassos HORECA" },
-      { name: "description", content: "200+ hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
+      { name: "description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
       { property: "og:title", content: "Thassos Accommodation by Thassos HORECA" },
-      { property: "og:description", content: "200+ hotels on Thassos Island. Free ferry tickets with every booking." },
+      { property: "og:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking." },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
