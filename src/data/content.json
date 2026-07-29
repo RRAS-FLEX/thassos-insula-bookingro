@@ -24,6 +24,11 @@
     "emailHref": "mailto:booking@thassos-horeca.gr",
     "address": "Limenas, 64004 Thassos, Greece"
   },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "whatsapp": ""
+  },
   "pages": {
     "home": {
       "badge": "Thassos Island · Greece",
@@ -81,8 +86,8 @@
     "contact": {
       "heading": "Contacts",
       "description": "The Thassos HORECA team is here to help you plan your stay.",
-      "formHeading": "Send us a message",
-      "successMessage": "Thank you! We'll get back to you shortly.",
+      "mapHeading": "Find us",
+      "socialHeading": "Follow us",
       "meta": {
         "title": "Contact — Thassos HORECA",
         "description": "Get in touch with Thassos HORECA for hotel bookings, group rates and ferry inquiries.",
