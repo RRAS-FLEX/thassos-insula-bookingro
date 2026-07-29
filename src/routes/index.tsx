@@ -1,15 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { VideoBackground } from "@/components/VideoBackground";
 import { Home, BedDouble, Ticket, Images, Phone } from "lucide-react";
+import content from "@/data/content.json";
+
+const copy = content.pages.home;
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Thassos Accommodation by Thassos HORECA" },
-      { name: "description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
-      { property: "og:title", content: "Thassos Accommodation by Thassos HORECA" },
-      { property: "og:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
+      { title: copy.meta.title },
+      { name: "description", content: copy.meta.description },
+      { property: "og:title", content: copy.meta.ogTitle },
+      { property: "og:description", content: copy.meta.ogDescription },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -28,13 +31,13 @@ function Index() {
     <section className="relative isolate flex min-h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-16 text-center">
       <VideoBackground />
       <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary">
-        Thassos Island · Greece
+        {copy.badge}
       </span>
       <h1 className="mt-6 max-w-4xl font-display text-4xl font-bold leading-tight text-foreground sm:text-6xl md:text-7xl">
-        Thassos <span className="text-primary">Accommodation</span>
+        {content.site.brand} <span className="text-primary">{copy.headingAccent}</span>
       </h1>
       <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-        Thassos accommodation by <span className="font-semibold text-foreground">Thassos HORECA</span>
+        {copy.tagline} <span className="font-semibold text-foreground">{content.site.brand} {content.site.brandAccent}</span>
       </p>
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -53,7 +56,7 @@ function Index() {
       </div>
 
       <div className="mt-16 grid w-full max-w-xl grid-cols-1 gap-4 text-center">
-        <Stat n="Free" label="Ferry tickets" />
+        <Stat n={copy.stat.value} label={copy.stat.label} />
       </div>
     </section>
   );

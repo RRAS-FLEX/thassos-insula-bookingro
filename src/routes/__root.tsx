@@ -11,16 +11,10 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import logoAsset from "../assets/thassos-horeca-logo.jpg.asset.json";
+import content from "../data/content.json";
 
-const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/accommodation", label: "Thassos Accommodation" },
-  { to: "/offers", label: "Special Offers" },
-  { to: "/gallery", label: "Photo Gallery" },
-  { to: "/contact", label: "Contacts" },
-] as const;
+const NAV = content.nav;
 
 function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -30,7 +24,7 @@ function SiteHeader() {
         <Link to="/" className="flex items-center gap-3">
           <img src={logoAsset.url} alt="Thassos HORECA logo" className="h-11 w-11 rounded-full object-cover bg-black" />
           <span className="font-display text-lg font-semibold tracking-tight">
-            Thassos <span className="text-primary">HORECA</span>
+            {content.site.brand} <span className="text-primary">{content.site.brandAccent}</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
@@ -79,9 +73,9 @@ function SiteFooter() {
     <footer className="mt-16 border-t border-border/60 bg-card/40">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-3">
         <div>
-          <div className="font-display text-xl font-semibold">Thassos <span className="text-primary">HORECA</span></div>
+          <div className="font-display text-xl font-semibold">{content.site.brand} <span className="text-primary">{content.site.brandAccent}</span></div>
           <p className="mt-2 text-sm text-muted-foreground">
-            Accommodation booking across Thassos Island — hotels, studios and villas curated by locals.
+            {content.footer.description}
           </p>
         </div>
         <div>
@@ -97,14 +91,14 @@ function SiteFooter() {
         <div>
           <div className="text-sm font-semibold text-foreground">Contact</div>
           <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-            <li>Email: booking@thassos-horeca.gr</li>
-            <li>Phone: +30 25930 00000</li>
-            <li>Limenas, Thassos, Greece</li>
+            <li>Email: {content.footer.email}</li>
+            <li>Phone: {content.footer.phone}</li>
+            <li>{content.footer.address}</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Thassos HORECA. All rights reserved.
+        © {new Date().getFullYear()} {content.site.brand} {content.site.brandAccent}. All rights reserved.
       </div>
     </footer>
   );
@@ -132,7 +126,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error(error);
   }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -158,18 +152,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Thassos Accommodation by Thassos HORECA" },
-      { name: "description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
-      { name: "theme-color", content: "#0f0b09" },
-      { property: "og:title", content: "Thassos Accommodation by Thassos HORECA" },
-      { property: "og:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
+      { title: content.pages.home.meta.title },
+      { name: "description", content: content.pages.home.meta.description },
+      { name: "theme-color", content: content.site.themeColor },
+      { property: "og:title", content: content.pages.home.meta.ogTitle },
+      { property: "og:description", content: content.pages.home.meta.ogDescription },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Thassos HORECA" },
+      { property: "og:site_name", content: `${content.site.brand} ${content.site.brandAccent}` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Thassos Accommodation by Thassos HORECA" },
-      { name: "twitter:description", content: "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3d1213c9-57c6-4163-a74b-97957d3aea8c/id-preview-68f00eb2--c9b3a450-34d0-4d25-bc76-b8af95264a10.lovable.app-1784580026629.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3d1213c9-57c6-4163-a74b-97957d3aea8c/id-preview-68f00eb2--c9b3a450-34d0-4d25-bc76-b8af95264a10.lovable.app-1784580026629.png" },
+      { name: "twitter:title", content: content.pages.home.meta.ogTitle },
+      { name: "twitter:description", content: content.pages.home.meta.ogDescription },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

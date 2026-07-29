@@ -1,5 +1,6 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "thassos-horeca",
+  "description": "Thassos HORECA — accommodation booking site for Thassos Island, Greece.",
   "private": true,
   "sideEffects": false,
   "type": "module",

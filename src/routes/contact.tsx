@@ -1,15 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import content from "@/data/content.json";
+
+const copy = content.pages.contact;
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact — Thassos HORECA" },
-      { name: "description", content: "Get in touch with Thassos HORECA for hotel bookings, group rates and ferry inquiries." },
-      { property: "og:title", content: "Contact Thassos HORECA" },
-      { property: "og:description", content: "Get in touch for bookings and group rates on Thassos Island." },
+      { title: copy.meta.title },
+      { name: "description", content: copy.meta.description },
+      { property: "og:title", content: copy.meta.ogTitle },
+      { property: "og:description", content: copy.meta.ogDescription },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),
@@ -20,18 +23,17 @@ function ContactPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <header className="mb-8">
-        <h1 className="font-display text-3xl font-bold sm:text-4xl">Contacts</h1>
+        <h1 className="font-display text-3xl font-bold sm:text-4xl">{copy.heading}</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          The Thassos HORECA team is here to help you plan your stay.
+          {copy.description}
         </p>
       </header>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-4">
-          <Info icon={Phone} title="Phone / WhatsApp" value="+30 25930 00000" href="tel:+302593000000" />
-          <Info icon={Mail} title="Email" value="booking@thassos-horeca.gr" href="mailto:booking@thassos-horeca.gr" />
-          <Info icon={MapPin} title="Address" value="Limenas, 64004 Thassos, Greece" />
-          
+          <Info icon={Phone} title="Phone / WhatsApp" value={content.contact.phone} href={content.contact.phoneHref} />
+          <Info icon={Mail} title="Email" value={content.contact.email} href={content.contact.emailHref} />
+          <Info icon={MapPin} title="Address" value={content.contact.address} />
         </div>
 
         <form
@@ -44,7 +46,7 @@ function ContactPage() {
           }}
           className="rounded-2xl border border-border/60 bg-card p-6"
         >
-          <h2 className="font-display text-xl font-semibold">Send us a message</h2>
+          <h2 className="font-display text-xl font-semibold">{copy.formHeading}</h2>
           <div className="mt-4 grid gap-3">
             <Field label="Name" name="name" required />
             <Field label="Email" name="email" type="email" required />
@@ -65,7 +67,7 @@ function ContactPage() {
               <Send className="h-4 w-4" /> Send message
             </button>
             {sent && (
-              <p className="text-sm text-primary">Thank you! We'll get back to you shortly.</p>
+              <p className="text-sm text-primary">{copy.successMessage}</p>
             )}
           </div>
         </form>

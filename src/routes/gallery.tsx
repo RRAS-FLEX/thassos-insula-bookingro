@@ -2,15 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { GALLERY } from "@/data/gallery";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import content from "@/data/content.json";
+
+const copy = content.pages.gallery;
 
 export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
   head: () => ({
     meta: [
-      { title: "Photo Gallery — Thassos Island | Thassos HORECA" },
-      { name: "description", content: "Discover Thassos through photos: beaches, villages, hotels and Aegean views." },
-      { property: "og:title", content: "Thassos Photo Gallery" },
-      { property: "og:description", content: "Beaches, villages, hotels and Aegean views from Thassos Island." },
+      { title: copy.meta.title },
+      { name: "description", content: copy.meta.description },
+      { property: "og:title", content: copy.meta.ogTitle },
+      { property: "og:description", content: copy.meta.ogDescription },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
   }),
@@ -25,9 +28,9 @@ function GalleryPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <header className="mb-6">
-        <h1 className="font-display text-3xl font-bold sm:text-4xl">Photo Gallery</h1>
+        <h1 className="font-display text-3xl font-bold sm:text-4xl">{copy.heading}</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          A glimpse of Thassos — turquoise coves, olive groves, marble villages and starlit tavernas.
+          {copy.description}
         </p>
       </header>
 

@@ -3,15 +3,18 @@ import { useMemo, useState } from "react";
 import { HOTELS, TOWN_LIST, type Hotel } from "@/data/hotels";
 import { HotelCard } from "@/components/HotelCard";
 import { HotelModal } from "@/components/HotelModal";
+import content from "@/data/content.json";
+
+const copy = content.pages.accommodation;
 
 export const Route = createFileRoute("/accommodation")({
   component: AccommodationPage,
   head: () => ({
     meta: [
-      { title: "Thassos Accommodation — Hotels & Studios | Thassos HORECA" },
-      { name: "description", content: "Browse hotels, studios and villas across Thassos Island." },
-      { property: "og:title", content: "Thassos Accommodation — Hotels" },
-      { property: "og:description", content: "Curated hotels and studios across Thassos Island." },
+      { title: copy.meta.title },
+      { name: "description", content: copy.meta.description },
+      { property: "og:title", content: copy.meta.ogTitle },
+      { property: "og:description", content: copy.meta.ogDescription },
     ],
     links: [{ rel: "canonical", href: "/accommodation" }],
   }),
@@ -36,9 +39,9 @@ function AccommodationPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <header className="mb-6">
-        <h1 className="font-display text-3xl font-bold sm:text-4xl">Thassos Accommodation</h1>
+        <h1 className="font-display text-3xl font-bold sm:text-4xl">{copy.heading}</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Browse hotels, studios and villas across Thassos. Contact each property directly — no booking fees.
+          {copy.description}
         </p>
       </header>
 
@@ -56,11 +59,17 @@ function AccommodationPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {shown.map((h) => (
-          <HotelCard key={h.id} hotel={h} onOpen={setSelected} showOfferRibbon />
-        ))}
-      </div>
+      {shown.length > 0 ? (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {shown.map((h) => (
+            <HotelCard key={h.id} hotel={h} onOpen={setSelected} showOfferRibbon />
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-border/60 bg-card/50 p-10 text-center text-sm text-muted-foreground">
+          {copy.emptyState}
+        </div>
+      )}
 
       {pageCount > 1 && (
         <div className="mt-10 flex items-center justify-center gap-2">

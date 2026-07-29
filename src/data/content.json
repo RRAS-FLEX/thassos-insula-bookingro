@@ -1,0 +1,94 @@
+{
+  "site": {
+    "brand": "Thassos",
+    "brandAccent": "HORECA",
+    "themeColor": "#0f0b09"
+  },
+  "nav": [
+    { "to": "/", "label": "Home" },
+    { "to": "/accommodation", "label": "Thassos Accommodation" },
+    { "to": "/offers", "label": "Special Offers" },
+    { "to": "/gallery", "label": "Photo Gallery" },
+    { "to": "/contact", "label": "Contacts" }
+  ],
+  "footer": {
+    "description": "Accommodation booking across Thassos Island — hotels, studios and villas curated by locals.",
+    "email": "booking@thassos-horeca.gr",
+    "phone": "+30 25930 00000",
+    "address": "Limenas, Thassos, Greece"
+  },
+  "contact": {
+    "phone": "+30 25930 00000",
+    "phoneHref": "tel:+302593000000",
+    "email": "booking@thassos-horeca.gr",
+    "emailHref": "mailto:booking@thassos-horeca.gr",
+    "address": "Limenas, 64004 Thassos, Greece"
+  },
+  "pages": {
+    "home": {
+      "badge": "Thassos Island · Greece",
+      "headingAccent": "Accommodation",
+      "tagline": "Thassos accommodation by",
+      "stat": { "value": "Free", "label": "Ferry tickets" },
+      "meta": {
+        "title": "Thassos Accommodation by Thassos HORECA",
+        "description": "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA.",
+        "ogTitle": "Thassos Accommodation by Thassos HORECA",
+        "ogDescription": "Hotels on Thassos Island. Free ferry tickets with every booking. Curated accommodation by Thassos HORECA."
+      }
+    },
+    "accommodation": {
+      "heading": "Thassos Accommodation",
+      "description": "Browse hotels, studios and villas across Thassos. Contact each property directly — no booking fees.",
+      "emptyState": "Listings are coming soon. Check back shortly, or contact us directly for accommodation help.",
+      "meta": {
+        "title": "Thassos Accommodation — Hotels & Studios | Thassos HORECA",
+        "description": "Browse hotels, studios and villas across Thassos Island.",
+        "ogTitle": "Thassos Accommodation — Hotels",
+        "ogDescription": "Curated hotels and studios across Thassos Island."
+      }
+    },
+    "offers": {
+      "eyebrow": "Limited-time offer",
+      "heading": "Free ferry tickets with every booking",
+      "description": "Book any participating hotel below and Thassos HORECA covers your ferry tickets — one round trip per booking, for the whole party.",
+      "terms": [
+        "Valid on Keramoti ⇆ Thassos (Limenas) route",
+        "Valid on Kavala ⇆ Prinos route",
+        "Minimum stay: 6 nights",
+        "Applies to participating hotels only"
+      ],
+      "participatingLabel": "participating hotels",
+      "sectionHeading": "Participating hotels",
+      "emptyState": "Participating hotels will be listed here soon. Contact us directly to ask about the ferry-ticket offer.",
+      "meta": {
+        "title": "Special Offers — Free Ferry Tickets | Thassos HORECA",
+        "description": "Book any participating hotel on Thassos and get free ferry tickets on the Keramoti–Thassos route.",
+        "ogTitle": "Free Ferry Tickets on Every Booking",
+        "ogDescription": "Free ferry tickets with every booking at participating Thassos hotels."
+      }
+    },
+    "gallery": {
+      "heading": "Photo Gallery",
+      "description": "A glimpse of Thassos — turquoise coves, olive groves, marble villages and starlit tavernas.",
+      "meta": {
+        "title": "Photo Gallery — Thassos Island | Thassos HORECA",
+        "description": "Discover Thassos through photos: beaches, villages, hotels and Aegean views.",
+        "ogTitle": "Thassos Photo Gallery",
+        "ogDescription": "Beaches, villages, hotels and Aegean views from Thassos Island."
+      }
+    },
+    "contact": {
+      "heading": "Contacts",
+      "description": "The Thassos HORECA team is here to help you plan your stay.",
+      "formHeading": "Send us a message",
+      "successMessage": "Thank you! We'll get back to you shortly.",
+      "meta": {
+        "title": "Contact — Thassos HORECA",
+        "description": "Get in touch with Thassos HORECA for hotel bookings, group rates and ferry inquiries.",
+        "ogTitle": "Contact Thassos HORECA",
+        "ogDescription": "Get in touch for bookings and group rates on Thassos Island."
+      }
+    }
+  }
+}
