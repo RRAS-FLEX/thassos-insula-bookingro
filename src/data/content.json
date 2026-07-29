@@ -2,7 +2,10 @@
   "site": {
     "brand": "Thassos",
     "brandAccent": "HORECA",
-    "themeColor": "#0f0b09"
+    "themeColor": "#0f0b09",
+    "url": "https://thassos-insula-bookingro.vercel.app",
+    "ogImage": "/og-image.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=8Kn-r-3vNPY"
   },
   "nav": [
     { "to": "/", "label": "Home" },

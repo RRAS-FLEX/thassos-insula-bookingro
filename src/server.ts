@@ -44,10 +44,26 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: https://images.unsplash.com",
+  "frame-src https://www.youtube-nocookie.com https://www.google.com",
+  "connect-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+].join("; ");
+
 function withSecurityHeaders(response: Response): Response {
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  response.headers.set("Content-Security-Policy", CSP);
+  response.headers.set("Strict-Transport-Security", "max-age=63072000; includeSubDomains");
   return response;
 }
 

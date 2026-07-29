@@ -11,7 +11,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "../assets/thassos-horeca-logo.jpg.asset.json";
+import logoUrl from "../assets/thassos-horeca-logo.jpg";
 import content from "../data/content.json";
 
 const NAV = content.nav;
@@ -22,7 +22,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Thassos HORECA logo" className="h-11 w-11 rounded-full object-cover bg-black" />
+          <img src={logoUrl} alt="Thassos HORECA logo" className="h-11 w-11 rounded-full object-cover bg-black" />
           <span className="font-display text-lg font-semibold tracking-tight">
             {content.site.brand} <span className="text-primary">{content.site.brandAccent}</span>
           </span>
@@ -159,9 +159,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: content.pages.home.meta.ogDescription },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: `${content.site.brand} ${content.site.brandAccent}` },
+      { property: "og:image", content: `${content.site.url}${content.site.ogImage}` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: content.pages.home.meta.ogTitle },
       { name: "twitter:description", content: content.pages.home.meta.ogDescription },
+      { name: "twitter:image", content: `${content.site.url}${content.site.ogImage}` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
