@@ -32,6 +32,12 @@ function GalleryPage() {
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           {copy.description}
         </p>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Photos via{" "}
+          <a href="https://commons.wikimedia.org/wiki/Category:Thasos" target="_blank" rel="noreferrer" className="underline hover:text-primary">
+            Wikimedia Commons
+          </a>
+        </p>
       </header>
 
       <div className="columns-2 gap-3 md:columns-3 lg:columns-4 [&>*]:mb-3">

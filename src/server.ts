@@ -49,7 +49,7 @@ const CSP = [
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "img-src 'self' data: https://images.unsplash.com",
+  "img-src 'self' data: https://upload.wikimedia.org",
   "frame-src https://www.youtube-nocookie.com https://www.google.com",
   "connect-src 'self'",
   "base-uri 'self'",
