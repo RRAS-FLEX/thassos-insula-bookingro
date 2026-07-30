@@ -97,8 +97,12 @@ function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {content.site.brand} {content.site.brandAccent}. All rights reserved.
+      <div className="flex flex-col items-center gap-2 border-t border-border/60 py-4 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:px-4">
+        <span>© {new Date().getFullYear()} {content.site.brand} {content.site.brandAccent}. All rights reserved.</span>
+        <span className="flex gap-4">
+          <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-primary">Terms of Service</Link>
+        </span>
       </div>
     </footer>
   );

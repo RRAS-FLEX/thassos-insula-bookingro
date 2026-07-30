@@ -79,6 +79,7 @@
     "gallery": {
       "heading": "Photo Gallery",
       "description": "A glimpse of Thassos — turquoise coves, olive groves, marble villages and starlit tavernas.",
+      "emptyState": "Photos are coming soon. Check back shortly.",
       "meta": {
         "title": "Photo Gallery — Thassos Island | Thassos HORECA",
         "description": "Discover Thassos through photos: beaches, villages, hotels and Aegean views.",
@@ -96,6 +97,112 @@
         "description": "Get in touch with Thassos HORECA for hotel bookings, group rates and ferry inquiries.",
         "ogTitle": "Contact Thassos HORECA",
         "ogDescription": "Get in touch for bookings and group rates on Thassos Island."
+      }
+    },
+    "privacy": {
+      "heading": "Privacy Policy",
+      "updated": "Last updated: July 2026",
+      "intro": "This Privacy Policy explains what information Thassos HORECA collects when you visit this website and how it is used. This site does not require an account, does not process payments, and does not currently include any form that collects your personal information.",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "body": [
+            "We do not operate a contact form, newsletter signup, or account system on this site, so we do not directly collect names, email addresses, or other personal details you provide.",
+            "Our hosting provider automatically logs standard technical information for every visit (such as IP address, browser type, and request timestamps) for security and operational purposes. We do not use this data for marketing or tracking."
+          ]
+        },
+        {
+          "heading": "Cookies",
+          "body": [
+            "This site does not set its own cookies and does not use analytics or advertising trackers.",
+            "Pages that embed third-party content (see below) may set their own cookies when that content loads or you interact with it, governed by that provider's own policy."
+          ]
+        },
+        {
+          "heading": "Third-party embedded content",
+          "body": [
+            "The homepage embeds a YouTube video via YouTube's privacy-enhanced player (youtube-nocookie.com). The Contact page embeds a Google Maps view. Interacting with these embeds is subject to Google's own Privacy Policy."
+          ]
+        },
+        {
+          "heading": "Changes to this policy",
+          "body": [
+            "We may update this policy as the site changes — for example, if we add a booking form, analytics, or cookie-based features in the future. Check back periodically for updates."
+          ]
+        },
+        {
+          "heading": "Contact us",
+          "body": [
+            "Questions about this policy can be sent to booking@thassos-horeca.gr."
+          ]
+        }
+      ],
+      "meta": {
+        "title": "Privacy Policy — Thassos HORECA",
+        "description": "How Thassos HORECA handles information when you visit this website.",
+        "ogTitle": "Privacy Policy — Thassos HORECA",
+        "ogDescription": "How Thassos HORECA handles information when you visit this website."
+      }
+    },
+    "terms": {
+      "heading": "Terms of Service",
+      "updated": "Last updated: July 2026",
+      "intro": "These Terms of Service govern your use of this website, operated by Thassos HORECA. By using this site, you agree to these terms.",
+      "sections": [
+        {
+          "heading": "Informational use only",
+          "body": [
+            "This website is provided for informational purposes to help visitors learn about accommodation on Thassos Island. No bookings, reservations, or payments are made through this site — availability, pricing, and booking are handled directly between you and the listed accommodation provider."
+          ]
+        },
+        {
+          "heading": "Accuracy of information",
+          "body": [
+            "We aim to keep listings, descriptions, and contact details accurate, but we do not guarantee their completeness or accuracy, and availability or pricing may change without notice. Always confirm details directly with the accommodation provider before finalizing plans."
+          ]
+        },
+        {
+          "heading": "Third-party links and content",
+          "body": [
+            "This site may link to or embed third-party content (such as Google Maps or YouTube). We are not responsible for the content, accuracy, or practices of third-party sites."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "body": [
+            "The site's design, branding, and original content are the property of Thassos HORECA unless otherwise noted. Photos used in the gallery are credited to their source where applicable."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "body": [
+            "This site is provided \"as is\" without warranties of any kind. Thassos HORECA is not liable for any damages arising from your use of this site or reliance on the information it contains."
+          ]
+        },
+        {
+          "heading": "Governing law",
+          "body": [
+            "These terms are governed by the laws of Greece."
+          ]
+        },
+        {
+          "heading": "Changes to these terms",
+          "body": [
+            "We may update these terms from time to time. Continued use of the site after changes means you accept the updated terms."
+          ]
+        },
+        {
+          "heading": "Contact us",
+          "body": [
+            "Questions about these terms can be sent to booking@thassos-horeca.gr."
+          ]
+        }
+      ],
+      "meta": {
+        "title": "Terms of Service — Thassos HORECA",
+        "description": "The terms that govern use of the Thassos HORECA website.",
+        "ogTitle": "Terms of Service — Thassos HORECA",
+        "ogDescription": "The terms that govern use of the Thassos HORECA website."
       }
     }
   }

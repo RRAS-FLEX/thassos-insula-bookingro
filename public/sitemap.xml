@@ -20,4 +20,12 @@
     <loc>https://thassos-horeca.gr/contact</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://thassos-horeca.gr/privacy</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://thassos-horeca.gr/terms</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

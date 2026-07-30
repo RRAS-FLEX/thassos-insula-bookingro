@@ -32,25 +32,25 @@ function GalleryPage() {
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
           {copy.description}
         </p>
-        <p className="mt-2 text-xs text-muted-foreground">
-          Photos via{" "}
-          <a href="https://commons.wikimedia.org/wiki/Category:Thasos" target="_blank" rel="noreferrer" className="underline hover:text-primary">
-            Wikimedia Commons
-          </a>
-        </p>
       </header>
 
-      <div className="columns-2 gap-3 md:columns-3 lg:columns-4 [&>*]:mb-3">
-        {GALLERY.map((p, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            className="block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
-          >
-            <img src={p.src} alt={p.alt} loading="lazy" className="h-auto w-full transition-transform duration-500 hover:scale-105" />
-          </button>
-        ))}
-      </div>
+      {GALLERY.length > 0 ? (
+        <div className="columns-2 gap-3 md:columns-3 lg:columns-4 [&>*]:mb-3">
+          {GALLERY.map((p, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className="block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
+            >
+              <img src={p.src} alt={p.alt} loading="lazy" className="h-auto w-full transition-transform duration-500 hover:scale-105" />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-border/60 bg-card/50 p-10 text-center text-sm text-muted-foreground">
+          {copy.emptyState}
+        </div>
+      )}
 
       {idx !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4">
