@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-type YTPlayer = { mute: () => void; playVideo: () => void };
+type YTPlayer = { mute: () => void; playVideo: () => void; destroy: () => void };
 
 declare global {
   interface Window {
@@ -35,9 +35,10 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
   useEffect(() => {
     if (!videoId) return;
     let cancelled = false;
+    let player: YTPlayer | undefined;
     loadYouTubeApi().then(() => {
       if (cancelled || !iframeRef.current || !window.YT) return;
-      new window.YT.Player(iframeRef.current, {
+      player = new window.YT.Player(iframeRef.current, {
         events: {
           onReady: (e: { target: YTPlayer }) => {
             e.target.mute();
@@ -48,6 +49,7 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
     });
     return () => {
       cancelled = true;
+      player?.destroy();
     };
   }, [videoId]);
 

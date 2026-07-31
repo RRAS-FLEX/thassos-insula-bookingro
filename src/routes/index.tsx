@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { VideoBackground } from "@/components/VideoBackground";
 import { Home, BedDouble, Ticket, Images, Phone } from "lucide-react";
 import content from "@/data/content.json";
@@ -29,7 +30,12 @@ const BUTTONS = [
 ] as const;
 
 function Index() {
-  const { videoId } = Route.useLoaderData();
+  // Router re-runs the loader on hover-preload (not just real navigation), which
+  // would otherwise reshuffle and remount the video every time a visitor hovers a
+  // link back to "/" while already on this page. Capturing it once via a lazy
+  // useState initializer means only an actual mount (a real visit) picks a new one.
+  const loaderData = Route.useLoaderData();
+  const [videoId] = useState(() => loaderData.videoId);
   return (
     <section className="relative isolate flex min-h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-16 text-center">
       <VideoBackground videoId={videoId} />
@@ -59,17 +65,20 @@ function Index() {
       </div>
 
       <div className="mt-16 grid w-full max-w-xl grid-cols-1 gap-4 text-center">
-        <Stat n={copy.stat.value} label={copy.stat.label} />
+        <Stat n={copy.stat.value} label={copy.stat.label} to="/offers" />
       </div>
     </section>
   );
 }
 
-function Stat({ n, label }: { n: string; label: string }) {
+function Stat({ n, label, to }: { n: string; label: string; to: string }) {
   return (
-    <div className="rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur">
+    <Link
+      to={to}
+      className="block rounded-2xl border border-border/60 bg-card/50 p-4 backdrop-blur transition-colors hover:border-primary hover:bg-primary/10"
+    >
       <div className="font-display text-2xl font-bold text-primary sm:text-3xl">{n}</div>
       <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{label}</div>
-    </div>
+    </Link>
   );
 }

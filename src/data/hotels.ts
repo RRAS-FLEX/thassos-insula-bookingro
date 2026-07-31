@@ -12,15 +12,27 @@ export type Hotel = {
 };
 
 export const TOWN_LIST = [
-  "Panagia",
-  "Theologos",
-  "Prinos",
-  "Kazaviti",
-  "Rachoni",
+  "Aliki",
+  "Astris",
+  "Chrysi Ammoudia",
+  "Golden Beach",
   "Kallirachi",
-  "Skala Kallirachis",
+  "Kazaviti",
+  "Kinira",
+  "Limenaria",
+  "Limenas (Thassos Town)",
   "Maries",
+  "Panagia",
+  "Pefkari",
+  "Potos",
+  "Prinos",
+  "Rachoni",
+  "Skala Kallirachis",
   "Skala Maries",
+  "Skala Potamias",
+  "Skala Prinos",
+  "Skala Rachoni",
+  "Theologos",
 ];
 
 export const HOTELS: Hotel[] = [];
