@@ -18,21 +18,21 @@
     { "to": "/", "label": "Home" },
     { "to": "/accommodation", "label": "Thassos Accommodation" },
     { "to": "/offers", "label": "Special Offers" },
-    { "to": "/gallery", "label": "Photo Gallery" },
+    { "to": "/gallery", "label": "Local Experiences" },
     { "to": "/contact", "label": "Contacts" }
   ],
   "footer": {
     "description": "Accommodation booking across Thassos Island — hotels, studios and villas curated by locals.",
-    "email": "booking@thassos-horeca.gr",
-    "phone": "+30 25930 00000",
-    "address": "Limenas, Thassos, Greece"
+    "email": "thassos.tourism.drone@gmail.com",
+    "phone": "+30 6945424938",
+    "address": "Skala Prinou 64010, Thassos, Greece"
   },
   "contact": {
-    "phone": "+30 25930 00000",
-    "phoneHref": "tel:+302593000000",
-    "email": "booking@thassos-horeca.gr",
-    "emailHref": "mailto:booking@thassos-horeca.gr",
-    "address": "Limenas, 64004 Thassos, Greece"
+    "phone": "+30 6945424938",
+    "phoneHref": "tel:+306945424938",
+    "email": "thassos.tourism.drone@gmail.com",
+    "emailHref": "mailto:thassos.tourism.drone@gmail.com",
+    "address": "Skala Prinou 64010, Thassos, Greece"
   },
   "social": {
     "facebook": "",
@@ -84,13 +84,13 @@
       }
     },
     "gallery": {
-      "heading": "Photo Gallery",
+      "heading": "Local Experiences",
       "description": "A glimpse of Thassos — turquoise coves, olive groves, marble villages and starlit tavernas.",
-      "emptyState": "Photos are coming soon. Check back shortly.",
+      "emptyState": "Local experiences are coming soon. Check back shortly.",
       "meta": {
-        "title": "Photo Gallery — Thassos Island | Thassos HORECA",
-        "description": "Discover Thassos through photos: beaches, villages, hotels and Aegean views.",
-        "ogTitle": "Thassos Photo Gallery",
+        "title": "Local Experiences — Thassos Island | Thassos HORECA",
+        "description": "Discover Thassos through local experiences: beaches, villages, hotels and Aegean views.",
+        "ogTitle": "Thassos Local Experiences",
         "ogDescription": "Beaches, villages, hotels and Aegean views from Thassos Island."
       }
     },
