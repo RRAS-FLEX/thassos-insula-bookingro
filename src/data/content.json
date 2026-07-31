@@ -5,7 +5,14 @@
     "themeColor": "#0f0b09",
     "url": "https://thassos-insula-bookingro.vercel.app",
     "ogImage": "/og-image.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=8Kn-r-3vNPY"
+    "videoUrls": [
+      "https://youtu.be/mQsP_viYgio",
+      "https://youtu.be/gJWexvQOIdU",
+      "https://youtu.be/C1834suoWBg",
+      "https://youtu.be/3cSe6LQP_fg",
+      "https://youtu.be/AGpvim_36yE",
+      "https://youtu.be/bWeU11YomCs"
+    ]
   },
   "nav": [
     { "to": "/", "label": "Home" },

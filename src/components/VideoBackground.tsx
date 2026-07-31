@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import content from "@/data/content.json";
 
 function parseVideoId(url: string): string | null {
@@ -17,8 +18,22 @@ function parseVideoId(url: string): string | null {
   }
 }
 
+function pickRandomVideoId(): string | null {
+  const urls = content.site.videoUrls;
+  if (!urls || urls.length === 0) return null;
+  const url = urls[Math.floor(Math.random() * urls.length)];
+  return parseVideoId(url);
+}
+
 export function VideoBackground() {
-  const videoId = parseVideoId(content.site.videoUrl);
+  // Picked client-side only (not during SSR) so every visitor's server-rendered
+  // HTML matches its own hydration pass — a server-side random pick would mismatch
+  // the client's independent pick and trigger a hydration warning.
+  const [videoId, setVideoId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setVideoId(pickRandomVideoId());
+  }, []);
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden bg-background">
