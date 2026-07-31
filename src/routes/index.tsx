@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { VideoBackground } from "@/components/VideoBackground";
+import { FloatingSocial } from "@/components/FloatingSocial";
 import { Home, BedDouble, Ticket, Images, Phone } from "lucide-react";
 import content from "@/data/content.json";
 import { pickRandomVideoId } from "@/lib/video";
@@ -67,6 +68,8 @@ function Index() {
       <div className="mt-16 grid w-full max-w-xl grid-cols-1 gap-4 text-center">
         <Stat n={copy.stat.value} label={copy.stat.label} to="/offers" />
       </div>
+
+      <FloatingSocial />
     </section>
   );
 }
