@@ -46,7 +46,7 @@ function isH3SwallowedErrorBody(body: string): boolean {
 
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://www.youtube.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   // Broad https: (not a fixed allowlist) because hotels.ts/gallery.ts are meant to hold
