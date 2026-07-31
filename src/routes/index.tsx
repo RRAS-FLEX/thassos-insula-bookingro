@@ -2,11 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { VideoBackground } from "@/components/VideoBackground";
 import { Home, BedDouble, Ticket, Images, Phone } from "lucide-react";
 import content from "@/data/content.json";
+import { pickRandomVideoId } from "@/lib/video";
 
 const copy = content.pages.home;
 
 export const Route = createFileRoute("/")({
   component: Index,
+  loader: () => ({ videoId: pickRandomVideoId() }),
   head: () => ({
     meta: [
       { title: copy.meta.title },
@@ -27,9 +29,10 @@ const BUTTONS = [
 ] as const;
 
 function Index() {
+  const { videoId } = Route.useLoaderData();
   return (
     <section className="relative isolate flex min-h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-16 text-center">
-      <VideoBackground />
+      <VideoBackground videoId={videoId} />
       <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary">
         {copy.badge}
       </span>
