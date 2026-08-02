@@ -40,9 +40,12 @@ function GalleryPage() {
             <button
               key={i}
               onClick={() => setIdx(i)}
-              className="block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
+              className="group relative block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
             >
-              <img src={p.src} alt={p.alt} loading="lazy" className="h-auto w-full transition-transform duration-500 hover:scale-105" />
+              <img src={p.src} alt={p.alt} loading="lazy" className="h-auto w-full transition-transform duration-500 group-hover:scale-105" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="text-sm font-medium text-foreground">{p.alt}</span>
+              </div>
             </button>
           ))}
         </div>
