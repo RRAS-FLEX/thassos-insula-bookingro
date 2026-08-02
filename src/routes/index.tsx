@@ -22,13 +22,17 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const BUTTONS = [
-  { to: "/", label: "Home", icon: Home },
-  { to: "/accommodation", label: "Thassos Accommodation", icon: BedDouble },
-  { to: "/offers", label: "Special Offers", icon: Ticket },
-  { to: "/gallery", label: "Photo Gallery", icon: Images },
-  { to: "/contact", label: "Contacts", icon: Phone },
-] as const;
+const NAV_ICONS: Record<string, typeof Home> = {
+  "/": Home,
+  "/accommodation": BedDouble,
+  "/offers": Ticket,
+  "/gallery": Images,
+  "/contact": Phone,
+};
+
+// Reuses content.nav (rather than a separately hardcoded label list) so this
+// never drifts out of sync with the header/footer nav labels again.
+const BUTTONS = content.nav.map((item) => ({ ...item, icon: NAV_ICONS[item.to] ?? Home }));
 
 function Index() {
   // Router re-runs the loader on hover-preload (not just real navigation), which
@@ -38,7 +42,7 @@ function Index() {
   const loaderData = Route.useLoaderData();
   const [videoId] = useState(() => loaderData.videoId);
   return (
-    <section className="relative isolate flex min-h-[calc(100vh-64px)] flex-col items-center justify-center px-4 py-16 text-center">
+    <section className="relative isolate flex min-h-[85vh] flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[calc(100vh-64px)]">
       <VideoBackground videoId={videoId} />
       <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary">
         {copy.badge}

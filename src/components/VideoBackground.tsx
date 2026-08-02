@@ -1,10 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type YTPlayer = { mute: () => void; playVideo: () => void; destroy: () => void };
+type YTPlayerState = { data: number; target: YTPlayer };
 
 declare global {
   interface Window {
-    YT?: { Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer };
+    YT?: {
+      Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer;
+      PlayerState: { PLAYING: number };
+    };
     onYouTubeIframeAPIReady?: () => void;
   }
 }
@@ -28,12 +32,14 @@ function loadYouTubeApi(): Promise<void> {
 
 export function VideoBackground({ videoId }: { videoId: string | null }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  // Kept hidden until playback is actually confirmed — the few seconds between
+  // the iframe loading and mute()/playVideo() taking effect otherwise show
+  // YouTube's own paused-state UI (play button + controls) right over the page.
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  // URL params alone (autoplay=1&mute=1) aren't reliably honored across every
-  // browser — when blocked, YouTube falls back to its paused-state UI (play
-  // button + controls). Driving mute/play explicitly via the JS API avoids that.
   useEffect(() => {
     if (!videoId) return;
+    setIsPlaying(false);
     let cancelled = false;
     let player: YTPlayer | undefined;
     loadYouTubeApi().then(() => {
@@ -43,6 +49,9 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
           onReady: (e: { target: YTPlayer }) => {
             e.target.mute();
             e.target.playVideo();
+          },
+          onStateChange: (e: YTPlayerState) => {
+            if (window.YT && e.data === window.YT.PlayerState.PLAYING) setIsPlaying(true);
           },
         },
       });
@@ -59,7 +68,7 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
         <iframe
           ref={iframeRef}
           key={videoId}
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[120vh] w-[220vw] -translate-x-1/2 -translate-y-1/2 md:w-[120vw] md:h-[120vh]"
+          className={`pointer-events-none absolute left-1/2 top-1/2 h-[120vh] w-[220vw] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 md:w-[120vw] md:h-[120vh] ${isPlaying ? "opacity-100" : "opacity-0"}`}
           src={`https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3&fs=0&playlist=${videoId}`}
           title="Thassos background video"
           allow="autoplay; encrypted-media; picture-in-picture"

@@ -46,7 +46,7 @@ function ContactPage() {
           <div className="overflow-hidden rounded-2xl border border-border/60 bg-card">
             <iframe
               title={copy.mapHeading}
-              src={`https://www.google.com/maps?q=${encodeURIComponent(content.contact.address)}&output=embed`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(content.contact.address)}&z=15&output=embed`}
               className="h-64 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
