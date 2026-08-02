@@ -17,9 +17,12 @@ export function parseVideoId(url: string): string | null {
   }
 }
 
-export function pickRandomVideoId(): string | null {
+export function pickRandomVideoId(excludeId?: string | null): string | null {
   const urls = content.site.videoUrls;
   if (!urls || urls.length === 0) return null;
-  const url = urls[Math.floor(Math.random() * urls.length)];
-  return parseVideoId(url);
+  const ids = urls.map(parseVideoId).filter((id): id is string => id !== null);
+  if (ids.length === 0) return null;
+  // Avoid repeating the same video back-to-back when there's another option.
+  const pool = ids.length > 1 && excludeId ? ids.filter((id) => id !== excludeId) : ids;
+  return pool[Math.floor(Math.random() * pool.length)];
 }

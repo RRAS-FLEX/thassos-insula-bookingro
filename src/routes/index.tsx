@@ -42,34 +42,37 @@ function Index() {
   const loaderData = Route.useLoaderData();
   const [videoId] = useState(() => loaderData.videoId);
   return (
-    <section className="relative isolate flex min-h-[85vh] flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[calc(100vh-64px)]">
+    <section className="relative isolate flex min-h-[calc(100vh-64px)] flex-col items-center justify-between px-4 py-16 text-center">
       <VideoBackground videoId={videoId} />
-      <span className="rounded-full border border-primary/40 bg-background/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary backdrop-blur-md">
-        {copy.badge}
-      </span>
-      <h1 className="mt-6 max-w-4xl font-display text-4xl font-bold leading-tight text-foreground sm:text-6xl md:text-7xl">
-        {content.site.brand} <span className="text-primary">{copy.headingAccent}</span>
-      </h1>
-      <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-        {copy.tagline} <span className="font-semibold text-foreground">{content.site.brand} {content.site.brandAccent}</span>
-      </p>
 
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-        {BUTTONS.map(({ to, label, icon: Icon }) => (
-          <Link
-            key={label}
-            to={to}
-            className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-background/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
-            activeOptions={{ exact: to === "/" }}
-            activeProps={{ className: "inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground" }}
-          >
-            <Icon className="h-4 w-4" />
-            {label}
-          </Link>
-        ))}
+      <div className="flex flex-1 flex-col items-center justify-center">
+        <span className="rounded-full border border-primary/40 bg-background/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary backdrop-blur-md">
+          {copy.badge}
+        </span>
+        <h1 className="mt-6 max-w-4xl font-display text-4xl font-bold leading-tight text-foreground sm:text-6xl md:text-7xl">
+          {content.site.brand} <span className="text-primary">{copy.headingAccent}</span>
+        </h1>
+        <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+          {copy.tagline} <span className="font-semibold text-foreground">{content.site.brand} {content.site.brandAccent}</span>
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          {BUTTONS.map(({ to, label, icon: Icon }) => (
+            <Link
+              key={label}
+              to={to}
+              className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-background/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
+              activeOptions={{ exact: to === "/" }}
+              activeProps={{ className: "inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground" }}
+            >
+              <Icon className="h-4 w-4" />
+              {label}
+            </Link>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-16 grid w-full max-w-xl grid-cols-1 gap-4 text-center">
+      <div className="grid w-full max-w-xl grid-cols-1 gap-4 text-center">
         <Stat n={copy.stat.value} label={copy.stat.label} to="/offers" />
       </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { pickRandomVideoId } from "@/lib/video";
 
 type YTPlayer = { mute: () => void; playVideo: () => void; destroy: () => void };
 type YTPlayerState = { data: number; target: YTPlayer };
@@ -7,7 +8,7 @@ declare global {
   interface Window {
     YT?: {
       Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer;
-      PlayerState: { PLAYING: number };
+      PlayerState: { PLAYING: number; ENDED: number };
     };
     onYouTubeIframeAPIReady?: () => void;
   }
@@ -30,8 +31,12 @@ function loadYouTubeApi(): Promise<void> {
   return apiPromise;
 }
 
-export function VideoBackground({ videoId }: { videoId: string | null }) {
+export function VideoBackground({ videoId: initialVideoId }: { videoId: string | null }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  // Owns playback after the initial (SSR-provided) pick so it can advance to a
+  // new random video itself once the current one ends, instead of looping the
+  // same clip forever.
+  const [videoId, setVideoId] = useState(initialVideoId);
   // Kept hidden until playback is actually confirmed — the few seconds between
   // the iframe loading and mute()/playVideo() taking effect otherwise show
   // YouTube's own paused-state UI (play button + controls) right over the page.
@@ -51,7 +56,9 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
             e.target.playVideo();
           },
           onStateChange: (e: YTPlayerState) => {
-            if (window.YT && e.data === window.YT.PlayerState.PLAYING) setIsPlaying(true);
+            if (!window.YT) return;
+            if (e.data === window.YT.PlayerState.PLAYING) setIsPlaying(true);
+            if (e.data === window.YT.PlayerState.ENDED) setVideoId((current) => pickRandomVideoId(current));
           },
         },
       });
@@ -69,7 +76,7 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
           ref={iframeRef}
           key={videoId}
           className={`pointer-events-none absolute left-1/2 top-1/2 h-[150vh] w-[275vw] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 md:h-[120vh] md:w-[120vw] ${isPlaying ? "opacity-100" : "opacity-0"}`}
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3&fs=0&playlist=${videoId}`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3&fs=0`}
           title="Thassos background video"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen={false}
