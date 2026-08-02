@@ -40,7 +40,9 @@ export function HotelCard({
         <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{hotel.description}</p>
         <div className="mt-3 flex flex-col gap-1 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-primary" /> {hotel.phone}</span>
-          <span className="flex items-center gap-1.5 truncate"><Mail className="h-3.5 w-3.5 text-primary" /> {hotel.email}</span>
+          {hotel.email && (
+            <span className="flex items-center gap-1.5 truncate"><Mail className="h-3.5 w-3.5 text-primary" /> {hotel.email}</span>
+          )}
         </div>
         <div className="mt-4 flex items-center justify-end">
           <button

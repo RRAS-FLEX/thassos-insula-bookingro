@@ -31,12 +31,18 @@ export function HotelModal({ hotel, onClose }: { hotel: Hotel | null; onClose: (
               <p className="mt-4 text-sm text-muted-foreground">{hotel.description}</p>
               <div className="mt-6 grid gap-3 rounded-xl bg-secondary/60 p-4 text-sm">
                 <div className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary" /> {hotel.phone}</div>
-                <div className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> {hotel.email}</div>
+                {hotel.email && (
+                  <div className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary" /> {hotel.email}</div>
+                )}
                 <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> {hotel.town}, Thassos, Greece</div>
               </div>
               <div className="mt-6 flex items-center justify-end">
                 <a
-                  href={`mailto:${hotel.email}?subject=Booking%20request%20-%20${encodeURIComponent(hotel.name)}`}
+                  href={
+                    hotel.email
+                      ? `mailto:${hotel.email}?subject=Booking%20request%20-%20${encodeURIComponent(hotel.name)}`
+                      : `tel:${hotel.phone.replace(/\s+/g, "")}`
+                  }
                   className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
                 >
                   Request booking
