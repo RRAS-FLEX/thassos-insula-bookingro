@@ -9,7 +9,20 @@ export function HotelModal({ hotel, onClose }: { hotel: Hotel | null; onClose: (
         {hotel && (
           <div>
             <div className="relative aspect-[16/9] w-full overflow-hidden">
-              <img src={hotel.image} alt={hotel.name} className="h-full w-full object-cover" />
+              {hotel.video ? (
+                <video
+                  src={hotel.video}
+                  poster={hotel.image}
+                  className="h-full w-full object-cover"
+                  controls
+                  playsInline
+                  muted
+                  loop
+                  autoPlay
+                />
+              ) : (
+                <img src={hotel.image} alt={hotel.name} className="h-full w-full object-cover" />
+              )}
               {hotel.offer && (
                 <div className="absolute left-4 top-4 flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
                   <Ticket className="h-3.5 w-3.5" /> Free ferry tickets included

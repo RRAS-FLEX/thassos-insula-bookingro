@@ -8,6 +8,7 @@ export type Hotel = {
   phone: string;
   email?: string;
   image: string;
+  video?: string;
   offer: boolean;
 };
 

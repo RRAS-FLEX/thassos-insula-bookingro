@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import { EXPERIENCES, CATEGORY_LIST, type Experience } from "@/data/experiences";
-import { ExperienceCard } from "@/components/ExperienceCard";
-import { ExperienceModal } from "@/components/ExperienceModal";
+import { useState } from "react";
+import { GALLERY } from "@/data/gallery";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import content from "@/data/content.json";
 
 const copy = content.pages.gallery;
@@ -21,12 +20,10 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function GalleryPage() {
-  const [category, setCategory] = useState<string>("all");
-  const [selected, setSelected] = useState<Experience | null>(null);
-
-  const filtered = useMemo(() => {
-    return EXPERIENCES.filter((e) => (category === "all" ? true : e.category === category));
-  }, [category]);
+  const [idx, setIdx] = useState<number | null>(null);
+  const close = () => setIdx(null);
+  const prev = () => setIdx((i) => (i === null ? i : (i - 1 + GALLERY.length) % GALLERY.length));
+  const next = () => setIdx((i) => (i === null ? i : (i + 1) % GALLERY.length));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -37,24 +34,16 @@ function GalleryPage() {
         </p>
       </header>
 
-      <div className="sticky top-16 z-20 mb-6 rounded-2xl border border-border/60 bg-card/80 p-3 backdrop-blur">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="rounded-full border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary"
-          >
-            <option value="all">All categories</option>
-            {CATEGORY_LIST.map((c) => <option key={c} value={c}>{c}</option>)}
-          </select>
-          <div className="text-xs text-muted-foreground">{filtered.length} results</div>
-        </div>
-      </div>
-
-      {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((e) => (
-            <ExperienceCard key={e.id} experience={e} onOpen={setSelected} />
+      {GALLERY.length > 0 ? (
+        <div className="columns-2 gap-3 md:columns-3 lg:columns-4 [&>*]:mb-3">
+          {GALLERY.map((p, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              className="block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
+            >
+              <img src={p.src} alt={p.alt} loading="lazy" className="h-auto w-full transition-transform duration-500 hover:scale-105" />
+            </button>
           ))}
         </div>
       ) : (
@@ -63,7 +52,17 @@ function GalleryPage() {
         </div>
       )}
 
-      <ExperienceModal experience={selected} onClose={() => setSelected(null)} />
+      {idx !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4">
+          <button onClick={close} className="absolute right-4 top-4 rounded-full bg-card p-2 text-foreground"><X className="h-5 w-5" /></button>
+          <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-card p-2 text-foreground"><ChevronLeft className="h-5 w-5" /></button>
+          <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-card p-2 text-foreground"><ChevronRight className="h-5 w-5" /></button>
+          <div className="flex max-h-[85vh] max-w-full flex-col items-center gap-2">
+            <img src={GALLERY[idx].src} alt={GALLERY[idx].alt} className="max-h-[75vh] max-w-full rounded-2xl object-contain" />
+            <span className="text-sm text-muted-foreground">{GALLERY[idx].alt}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
