@@ -68,7 +68,7 @@ export function VideoBackground({ videoId }: { videoId: string | null }) {
         <iframe
           ref={iframeRef}
           key={videoId}
-          className={`pointer-events-none absolute left-1/2 top-1/2 h-[120vh] w-[220vw] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 md:w-[120vw] md:h-[120vh] ${isPlaying ? "opacity-100" : "opacity-0"}`}
+          className={`pointer-events-none absolute left-1/2 top-1/2 h-[150vh] w-[275vw] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 md:h-[120vh] md:w-[120vw] ${isPlaying ? "opacity-100" : "opacity-0"}`}
           src={`https://www.youtube-nocookie.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3&fs=0&playlist=${videoId}`}
           title="Thassos background video"
           allow="autoplay; encrypted-media; picture-in-picture"

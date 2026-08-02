@@ -44,7 +44,7 @@ function Index() {
   return (
     <section className="relative isolate flex min-h-[85vh] flex-col items-center justify-center px-4 py-16 text-center sm:min-h-[calc(100vh-64px)]">
       <VideoBackground videoId={videoId} />
-      <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary">
+      <span className="rounded-full border border-primary/40 bg-background/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-primary backdrop-blur-md">
         {copy.badge}
       </span>
       <h1 className="mt-6 max-w-4xl font-display text-4xl font-bold leading-tight text-foreground sm:text-6xl md:text-7xl">
@@ -59,7 +59,7 @@ function Index() {
           <Link
             key={label}
             to={to}
-            className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
+            className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-background/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur-md transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
             activeOptions={{ exact: to === "/" }}
             activeProps={{ className: "inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground" }}
           >
