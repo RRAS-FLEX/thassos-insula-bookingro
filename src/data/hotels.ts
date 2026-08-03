@@ -7,7 +7,7 @@ export type Hotel = {
   description: string;
   phone: string;
   email?: string;
-  image: string;
+  images: string[];
   video?: string;
   offer: boolean;
 };
@@ -37,6 +37,10 @@ export const TOWN_LIST = [
   "Theologos",
 ];
 
+function photos(slug: string, count: number): string[] {
+  return Array.from({ length: count }, (_, i) => `/hotels/${slug}-${i + 1}.jpg`);
+}
+
 export const HOTELS: Hotel[] = [
   {
     id: 1,
@@ -46,7 +50,7 @@ export const HOTELS: Hotel[] = [
     priceFrom: 0,
     description: "Aphrodite's House offers accommodation in Skala Sotiros with free private parking and free WiFi.",
     phone: "+30 698 3762419",
-    image: "/hotels/afrodites-house.jpg",
+    images: photos("afrodites-house", 6),
     offer: false,
   },
   {
@@ -58,7 +62,7 @@ export const HOTELS: Hotel[] = [
     description: "In one of the most picturesque areas on the island of Thassos, in the pine-covered Dasyllio of Prinos, just a few steps away from the seaside, Alion complex welcomes those seeking a peaceful and relaxing summer vacation.",
     phone: "+30 699 923 9291",
     email: "info@alion.gr",
-    image: "/hotels/alion.jpg",
+    images: photos("alion", 4),
     offer: false,
   },
   {
@@ -70,7 +74,7 @@ export const HOTELS: Hotel[] = [
     description: "Enjoy the seaside hotel on Pefkari Beach, Thassos — comfortable rooms, delicious food & a fun beach just steps away!",
     phone: "+30 25930 51877",
     email: "info@hotel-akti-thassos.gr",
-    image: "/hotels/hotel-akti.jpg",
+    images: photos("hotel-akti", 4),
     offer: false,
   },
   {
@@ -82,7 +86,7 @@ export const HOTELS: Hotel[] = [
     description: "Potos Hotel is located in one of the most beautiful and cosmopolitan tourist destinations of Thassos, the village of Potos. At the hotel restaurant you can enjoy your meal with a variety of Greek traditional flavors and more.",
     phone: "+30 25930 51416",
     email: "info@hotelpotos.com",
-    image: "/hotels/hotel-potos.jpg",
+    images: photos("hotel-potos", 4),
     offer: false,
   },
   {
@@ -94,7 +98,7 @@ export const HOTELS: Hotel[] = [
     description: "The hotel is close to the beach, local taverns, shops and the port of Skala Prinos, making it an ideal base for exploring Thassos.",
     phone: "+359 879 903045",
     email: "info@hotel-prinos.com",
-    image: "/hotels/hotel-prinos.jpg",
+    images: photos("hotel-prinos", 5),
     offer: false,
   },
   {
@@ -105,7 +109,7 @@ export const HOTELS: Hotel[] = [
     priceFrom: 0,
     description: "Glikadi beach is about a 10-minute drive from the comfortable Hotel Zafira Skala Rachoniou, which features a sunbathing area and sun loungers. Area attractions, such as Arriba Beach, are just 450 metres from the hotel.",
     phone: "+30 2593 081265",
-    image: "/hotels/hotel-zafira.jpg",
+    images: photos("hotel-zafira", 5),
     offer: false,
   },
   {
@@ -117,7 +121,7 @@ export const HOTELS: Hotel[] = [
     description: "Exceptional half-board stays at a 3-star hotel for every traveler — from spontaneous weekend getaways to extended business trips.",
     phone: "+30 2593 071811",
     email: "info@kazaviti.gr",
-    image: "/hotels/kazaviti-hotel.jpg",
+    images: photos("kazaviti-hotel", 3),
     offer: false,
   },
   {
@@ -129,7 +133,7 @@ export const HOTELS: Hotel[] = [
     description: "Marti Resort & Marti Beach have a direct view to Kavala, Athos and Pangeon mountain. The area of Prinos, Skala Kallirachis and Skala Sotiros is quiet, with beautiful small virgin beaches, where olive trees reach the sand and their shadow makes a unique atmosphere on the beach.",
     phone: "+359 879 903045",
     email: "marti.thassos@gmail.com",
-    image: "/hotels/marti-resort.jpg",
+    images: photos("marti-resort", 5),
     offer: false,
   },
   {
@@ -141,7 +145,7 @@ export const HOTELS: Hotel[] = [
     description: "Located in a privileged position in the center of Skala Prinos, just 150 meters from the sea, offering the ideal combination of convenient access and tranquility.",
     phone: "+30 25930 71710",
     email: "info@philoxeniahotel.gr",
-    image: "/hotels/philoxenia.jpg",
+    images: photos("philoxenia", 6),
     offer: false,
   },
   {
@@ -153,7 +157,7 @@ export const HOTELS: Hotel[] = [
     description: "Sentimento is a brand-new hotel that shines with its unique traits. Enjoy incredible sunsets, rejuvenate your energy, and spend quality time with your loved ones, all while experiencing the tranquility of the island incorporated into each of the rooms.",
     phone: "+359 889 437370",
     email: "office@sentimento-thassos.com",
-    image: "/hotels/sentimento.jpg",
+    images: photos("sentimento", 6),
     offer: false,
   },
   {
@@ -165,7 +169,7 @@ export const HOTELS: Hotel[] = [
     description: "With many years of presence in the area, Socrates Hotel Plaza guarantees quality holidays by the sea. A lush garden, a large swimming pool, a private sandy beach and spacious, well-maintained rooms are what make it stand out.",
     phone: "+30 25930 71770",
     email: "info@socrates-plaza.gr",
-    image: "/hotels/socrates.jpg",
+    images: photos("socrates", 5),
     offer: false,
   },
   {
@@ -177,7 +181,7 @@ export const HOTELS: Hotel[] = [
     description: "Single rooms and full apartment rentals with private beach umbrellas, parking, BBQ, WiFi and A/C. Recommended accommodation by Forum Thassos, located in Skala Prinos directly on the beach.",
     phone: "+30 694 901 0138",
     email: "thassostreasure@gmail.com",
-    image: "/hotels/thassos-treasure.jpg",
+    images: photos("thassos-treasure", 4),
     offer: false,
   },
   {
@@ -189,7 +193,7 @@ export const HOTELS: Hotel[] = [
     description: "Set in Thassos, close to the center and less than 1 km from Papias Beach and a 12-minute walk from Limenas Beach, Versa Studios offers comfort and convenience.",
     phone: "+30 694 221 9375",
     email: "versastudios.thassos@gmail.com",
-    image: "/hotels/versa-studios.jpg",
+    images: photos("versa-studios", 6),
     offer: false,
   },
   {
@@ -200,7 +204,7 @@ export const HOTELS: Hotel[] = [
     priceFrom: 0,
     description: "Villa Aggeliki is surrounded by a large garden with fruit trees.",
     phone: "+30 694 913 7871",
-    image: "/hotels/villa-aggeliki.jpg",
+    images: photos("villa-aggeliki", 5),
     offer: false,
   },
   {
@@ -212,7 +216,7 @@ export const HOTELS: Hotel[] = [
     description: "160 m² with 3 bedrooms each with a double bed, 2 bathrooms, a sitting area with a sofa, a flat-screen TV, a dining area, a fully equipped kitchen and a patio overlooking the garden. Accommodates up to 7 people.",
     phone: "+30 698 725 6065",
     email: "contact@astris-villa.gr",
-    image: "/hotels/villa-astris.jpg",
+    images: photos("villa-astris", 5),
     offer: false,
   },
   {
@@ -224,7 +228,7 @@ export const HOTELS: Hotel[] = [
     description: "Surrounded by pine trees with the backdrop of imposing mountains, Inspira welcomes you to experience unique hospitality and personal service — an oasis aimed only at adults.",
     phone: "+30 2593 071600",
     email: "book@inspiraboutique.com",
-    image: "/hotels/inspira.jpg",
+    images: photos("inspira", 4),
     offer: false,
   },
 ];

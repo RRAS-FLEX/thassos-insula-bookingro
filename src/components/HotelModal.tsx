@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Phone, Mail, MapPin, Star, Ticket } from "lucide-react";
 import type { Hotel } from "@/data/hotels";
+import { MediaSlideshow } from "@/components/MediaSlideshow";
 
 export function HotelModal({ hotel, onClose }: { hotel: Hotel | null; onClose: () => void }) {
   return (
@@ -8,21 +9,8 @@ export function HotelModal({ hotel, onClose }: { hotel: Hotel | null; onClose: (
       <DialogContent className="max-w-2xl overflow-hidden p-0">
         {hotel && (
           <div>
-            <div className="relative aspect-[16/9] w-full overflow-hidden">
-              {hotel.video ? (
-                <video
-                  src={hotel.video}
-                  poster={hotel.image}
-                  className="h-full w-full object-cover"
-                  controls
-                  playsInline
-                  muted
-                  loop
-                  autoPlay
-                />
-              ) : (
-                <img src={hotel.image} alt={hotel.name} className="h-full w-full object-cover" />
-              )}
+            <div className="relative">
+              <MediaSlideshow images={hotel.images} video={hotel.video} title={hotel.name} />
               {hotel.offer && (
                 <div className="absolute left-4 top-4 flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
                   <Ticket className="h-3.5 w-3.5" /> Free ferry tickets included
