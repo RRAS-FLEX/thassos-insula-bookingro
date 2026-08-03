@@ -1,5 +1,35 @@
 import content from "@/data/content.json";
 
+export type YTPlayer = { mute: () => void; playVideo: () => void; destroy: () => void };
+export type YTPlayerState = { data: number; target: YTPlayer };
+
+declare global {
+  interface Window {
+    YT?: {
+      Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer;
+      PlayerState: { PLAYING: number; ENDED: number };
+    };
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
+
+let apiPromise: Promise<void> | null = null;
+export function loadYouTubeApi(): Promise<void> {
+  if (window.YT) return Promise.resolve();
+  if (apiPromise) return apiPromise;
+  apiPromise = new Promise((resolve) => {
+    const previous = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      previous?.();
+      resolve();
+    };
+    const script = document.createElement("script");
+    script.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(script);
+  });
+  return apiPromise;
+}
+
 export function parseVideoId(url: string): string | null {
   try {
     const u = new URL(url);

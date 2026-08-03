@@ -1,35 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { pickRandomVideoId } from "@/lib/video";
-
-type YTPlayer = { mute: () => void; playVideo: () => void; destroy: () => void };
-type YTPlayerState = { data: number; target: YTPlayer };
-
-declare global {
-  interface Window {
-    YT?: {
-      Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer;
-      PlayerState: { PLAYING: number; ENDED: number };
-    };
-    onYouTubeIframeAPIReady?: () => void;
-  }
-}
-
-let apiPromise: Promise<void> | null = null;
-function loadYouTubeApi(): Promise<void> {
-  if (window.YT) return Promise.resolve();
-  if (apiPromise) return apiPromise;
-  apiPromise = new Promise((resolve) => {
-    const previous = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      previous?.();
-      resolve();
-    };
-    const script = document.createElement("script");
-    script.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(script);
-  });
-  return apiPromise;
-}
+import { pickRandomVideoId, loadYouTubeApi, type YTPlayer, type YTPlayerState } from "@/lib/video";
 
 export function VideoBackground({ videoId: initialVideoId }: { videoId: string | null }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);

@@ -1,0 +1,206 @@
+export type Experience = {
+  id: number;
+  name: string;
+  category: string;
+  town: string;
+  description: string;
+  phone?: string;
+  email?: string;
+  images: string[];
+  video?: string;
+};
+
+export const CATEGORY_LIST = [
+  "Taverns & Restaurants",
+  "Beach Bars & Cafés",
+  "Rentals",
+  "Beauty & Wellness",
+  "Sweets",
+];
+
+function photos(slug: string, count: number): string[] {
+  return Array.from({ length: count }, (_, i) => `/experiences/${slug}-${i + 1}.jpg`);
+}
+
+export const EXPERIENCES: Experience[] = [
+  {
+    id: 1,
+    name: "Nineteen O' Five",
+    category: "Taverns & Restaurants",
+    town: "Limenas",
+    description: "Restaurant and bar at the heart of Thassos Island.",
+    phone: "+30 698 315 2415",
+    email: "info@1905room.com",
+    images: photos("1905", 4),
+  },
+  {
+    id: 2,
+    name: "Afenski",
+    category: "Beauty & Wellness",
+    town: "Skala Rachoni",
+    description: "Afenski Beauty & Wellness Studio.",
+    images: photos("afenski", 4),
+  },
+  {
+    id: 3,
+    name: "Arriba Beach Bar",
+    category: "Beach Bars & Cafés",
+    town: "Skala Rachoni",
+    description: "Relaxation by the sea, in Skala Rachoni, Thassos.",
+    phone: "+30 2593 081426",
+    email: "info@arriba.gr",
+    images: photos("arriba", 4),
+  },
+  {
+    id: 4,
+    name: "Bella Ciao",
+    category: "Taverns & Restaurants",
+    town: "Potos",
+    description: "Authentic Italian flavors, fresh pasta, wood-fired pizzas, and a unique atmosphere in the heart of Thassos.",
+    phone: "+30 25930 53327",
+    images: photos("bella-ciao", 4),
+  },
+  {
+    id: 5,
+    name: "Calma Beach Bar",
+    category: "Beach Bars & Cafés",
+    town: "Skala Prinos",
+    description: "Immerse yourself in the ultimate \"Calma\" experience — in the heart of Thassos, where golden sand meets crystal-clear waters, moments of absolute relaxation await.",
+    phone: "+30 6987 205562",
+    email: "info@calmabeachbar.com",
+    images: photos("calma", 4),
+  },
+  {
+    id: 6,
+    name: "Drosia Tavern",
+    category: "Taverns & Restaurants",
+    town: "Rachoni",
+    description: "Fresh food and a peaceful place inside nature.",
+    phone: "+30 2593 081508",
+    email: "fragakismakis@gmail.com",
+    images: photos("drosia-tavern", 4),
+  },
+  {
+    id: 7,
+    name: "Glikia Gonia",
+    category: "Sweets",
+    town: "Limenas",
+    description: "Thassos port confectionery — sweets all over.",
+    phone: "+30 2593 022505",
+    images: photos("glikia-gonia", 4),
+  },
+  {
+    id: 8,
+    name: "Island Beach Bar",
+    category: "Beach Bars & Cafés",
+    town: "Limenas",
+    description: "A summer destination to spend relaxing moments with friends and family, on 26 Miaouli Street since 1996, offering completely free sunbeds.",
+    phone: "+30 2593 023122",
+    email: "iatroudoc69@windowslive.com",
+    images: photos("island-beach-bar", 4),
+  },
+  {
+    id: 9,
+    name: "Karibou Tavern",
+    category: "Taverns & Restaurants",
+    town: "Prinos",
+    description: "Delicious lobster cooked with great care — made with art and offered with love.",
+    phone: "+30 2593 071462",
+    email: "magafinis123@gmail.com",
+    images: photos("karibou", 4),
+  },
+  {
+    id: 10,
+    name: "La Strada 69",
+    category: "Beach Bars & Cafés",
+    town: "Skala Sotiros",
+    description: "Aromatic coffee, authentic brunch and free parking without drama — flavors that stand out, comfort that wins you over and vibes that stay.",
+    phone: "+30 2593 111023",
+    email: "lastrada699@gmail.com",
+    images: photos("la-strada-69", 5),
+  },
+  {
+    id: 11,
+    name: "Loop Coffee Shop",
+    category: "Beach Bars & Cafés",
+    town: "Skala Prinos",
+    description: "Coffee shop and snack bar.",
+    images: photos("loop", 4),
+  },
+  {
+    id: 12,
+    name: "Mikes Rental",
+    category: "Rentals",
+    town: "Limenas",
+    description: "A wide range of vehicles to make your holiday on the beautiful island of Thassos unforgettable.",
+    phone: "+30 694 608 9276",
+    email: "info@rentalthasos.gr",
+    images: photos("mikes-rental", 5),
+  },
+  {
+    id: 13,
+    name: "Mojo",
+    category: "Beach Bars & Cafés",
+    town: "Skala Sotiros",
+    description: "New café-bistro in Skala Sotiros, Thassos — a modern, cosy spot for coffee, meals, and scenic views.",
+    phone: "+30 2593 071791",
+    images: photos("mojo", 5),
+  },
+  {
+    id: 14,
+    name: "Mouragio Tavern",
+    category: "Taverns & Restaurants",
+    town: "Limenaria",
+    description: "Mediterranean cuisine made with passion, using pure ingredients and fresh virgin olive oil from Thassos — seafood pasta, daily dishes, grilled meats, and the famous \"Kyra Maria's kakavia.\"",
+    phone: "+30 2593 051178",
+    images: photos("mouragio", 6),
+  },
+  {
+    id: 15,
+    name: "Nice2Meatyou",
+    category: "Taverns & Restaurants",
+    town: "Limenas",
+    description: "Greek original gyros in Thassos, Limenas.",
+    phone: "+30 2593 023833",
+    email: "nice2meatyou@outlook.com",
+    images: photos("nice2meatyou", 4),
+  },
+  {
+    id: 16,
+    name: "Rent A Boat",
+    category: "Rentals",
+    town: "Skala Sotiros",
+    description: "Rental boats in Skala Sotiros, Thassos.",
+    phone: "+30 6947 810929",
+    images: photos("rent-a-boat", 4),
+  },
+  {
+    id: 17,
+    name: "Sakis Tavern",
+    category: "Taverns & Restaurants",
+    town: "Skala Rachoni",
+    description: "Located in the beautiful and quiet village of Skala Rachoni, Thassos, right next to a wonderful sandy beach with crystal-clear water and a charming view of mainland Greece.",
+    phone: "+30 2593 081032",
+    images: photos("sakis-tavern", 4),
+  },
+  {
+    id: 18,
+    name: "Socratis Klisma Seafood",
+    category: "Taverns & Restaurants",
+    town: "Klisma",
+    description: "Welcome to Socratis Klisma Seafood.",
+    phone: "+30 2593 091642",
+    email: "socpap86@gmail.com",
+    images: photos("socratis-tavern", 4),
+  },
+  {
+    id: 19,
+    name: "Stratos Tavern",
+    category: "Taverns & Restaurants",
+    town: "Limenas",
+    description: "The new restaurant at the central beach of Limenas, Thassos (old harbour) — free sun beds.",
+    phone: "+30 694 889 4444",
+    email: "efstratiosstratidis@yahoo.gr",
+    images: photos("stratos-tavern", 5),
+  },
+];

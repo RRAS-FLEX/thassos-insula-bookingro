@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Facebook, Instagram, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, MessageCircle } from "lucide-react";
 import content from "@/data/content.json";
 
 const copy = content.pages.contact;
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/contact")({
 const SOCIAL_LINKS = [
   { key: "facebook", icon: Facebook, label: "Facebook" },
   { key: "instagram", icon: Instagram, label: "Instagram" },
+  { key: "youtube", icon: Youtube, label: "YouTube" },
   { key: "whatsapp", icon: MessageCircle, label: "WhatsApp" },
 ] as const;
 

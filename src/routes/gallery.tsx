@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { GALLERY } from "@/data/gallery";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { EXPERIENCES, CATEGORY_LIST, type Experience } from "@/data/experiences";
+import { ExperienceCard } from "@/components/ExperienceCard";
+import { ExperienceModal } from "@/components/ExperienceModal";
 import content from "@/data/content.json";
 
 const copy = content.pages.gallery;
@@ -20,25 +21,12 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function GalleryPage() {
-  const [idx, setIdx] = useState<number | null>(null);
+  const [category, setCategory] = useState<string>("all");
+  const [selected, setSelected] = useState<Experience | null>(null);
 
-  // Sorted alphabetically by name; Array#sort is stable so each place's own
-  // photos keep their original relative order within its group.
-  const sorted = useMemo(() => [...GALLERY].sort((a, b) => a.alt.localeCompare(b.alt)), []);
-
-  const groups = useMemo(() => {
-    const map = new Map<string, number[]>();
-    sorted.forEach((photo, i) => {
-      const list = map.get(photo.alt) ?? [];
-      list.push(i);
-      map.set(photo.alt, list);
-    });
-    return [...map.entries()];
-  }, [sorted]);
-
-  const close = () => setIdx(null);
-  const prev = () => setIdx((i) => (i === null ? i : (i - 1 + sorted.length) % sorted.length));
-  const next = () => setIdx((i) => (i === null ? i : (i + 1) % sorted.length));
+  const filtered = useMemo(() => {
+    return EXPERIENCES.filter((e) => (category === "all" ? true : e.category === category));
+  }, [category]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -49,26 +37,24 @@ function GalleryPage() {
         </p>
       </header>
 
-      {sorted.length > 0 ? (
-        <div className="space-y-10">
-          {groups.map(([name, indices]) => (
-            <section key={name}>
-              <h2 className="mb-3 font-display text-lg font-semibold text-foreground">{name}</h2>
-              <div className="columns-2 gap-3 md:columns-3 lg:columns-4 [&>*]:mb-3">
-                {indices.map((i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIdx(i)}
-                    className="group relative block w-full overflow-hidden rounded-xl border border-border/60 bg-card"
-                  >
-                    <img src={sorted[i].src} alt={sorted[i].alt} loading="lazy" className="h-auto w-full transition-transform duration-500 group-hover:scale-105" />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <span className="text-sm font-medium text-foreground">{sorted[i].alt}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </section>
+      <div className="sticky top-16 z-20 mb-6 rounded-2xl border border-border/60 bg-card/80 p-3 backdrop-blur">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="rounded-full border border-input bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+          >
+            <option value="all">All categories</option>
+            {CATEGORY_LIST.map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <div className="text-xs text-muted-foreground">{filtered.length} results</div>
+        </div>
+      </div>
+
+      {filtered.length > 0 ? (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {filtered.map((e) => (
+            <ExperienceCard key={e.id} experience={e} onOpen={setSelected} />
           ))}
         </div>
       ) : (
@@ -77,17 +63,7 @@ function GalleryPage() {
         </div>
       )}
 
-      {idx !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4">
-          <button onClick={close} className="absolute right-4 top-4 rounded-full bg-card p-2 text-foreground"><X className="h-5 w-5" /></button>
-          <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-card p-2 text-foreground"><ChevronLeft className="h-5 w-5" /></button>
-          <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-card p-2 text-foreground"><ChevronRight className="h-5 w-5" /></button>
-          <div className="flex max-h-[85vh] max-w-full flex-col items-center gap-2">
-            <img src={sorted[idx].src} alt={sorted[idx].alt} className="max-h-[75vh] max-w-full rounded-2xl object-contain" />
-            <span className="text-sm text-muted-foreground">{sorted[idx].alt}</span>
-          </div>
-        </div>
-      )}
+      <ExperienceModal experience={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }
