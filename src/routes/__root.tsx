@@ -12,6 +12,7 @@ import { Menu, X } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import logoUrl from "../assets/thassos-horeca-logo.jpg";
+import nautiplexLogo from "../assets/nautiplex-logo.png";
 import content from "../data/content.json";
 
 const NAV = content.nav;
@@ -97,8 +98,18 @@ function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-2 border-t border-border/60 py-4 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:px-4">
+      <div className="flex flex-col items-center gap-3 border-t border-border/60 py-4 px-6 pr-20 text-center text-xs text-muted-foreground sm:flex-row sm:justify-between sm:px-4">
         <span>© {new Date().getFullYear()} {content.site.brand} {content.site.brandAccent}. All rights reserved.</span>
+        <a
+          href="https://nautiplex.com"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center gap-2 uppercase tracking-[0.15em] hover:text-primary"
+        >
+          <span>Powered by</span>
+          <img src={nautiplexLogo} alt="" className="h-4 w-4" />
+          <span className="font-semibold text-primary">Nautiplex Network</span>
+        </a>
         <span className="flex gap-4">
           <Link to="/privacy" className="hover:text-primary">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-primary">Terms of Service</Link>
