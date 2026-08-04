@@ -51,6 +51,7 @@ export const HOTELS: Hotel[] = [
     description: "Aphrodite's House offers accommodation in Skala Sotiros with free private parking and free WiFi.",
     phone: "+30 698 3762419",
     images: photos("afrodites-house", 6),
+    video: "https://www.youtube.com/watch?v=zXzmRUKZg_c",
     offer: false,
   },
   {
@@ -63,6 +64,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 699 923 9291",
     email: "info@alion.gr",
     images: photos("alion", 4),
+    video: "https://www.youtube.com/watch?v=XAeFQeBg2ys",
     offer: false,
   },
   {
@@ -75,6 +77,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 25930 51877",
     email: "info@hotel-akti-thassos.gr",
     images: photos("hotel-akti", 4),
+    video: "https://www.youtube.com/watch?v=C1834suoWBg",
     offer: false,
   },
   {
@@ -99,6 +102,7 @@ export const HOTELS: Hotel[] = [
     phone: "+359 879 903045",
     email: "info@hotel-prinos.com",
     images: photos("hotel-prinos", 5),
+    video: "https://www.youtube.com/watch?v=KtmYeHnnU9c",
     offer: false,
   },
   {
@@ -110,6 +114,7 @@ export const HOTELS: Hotel[] = [
     description: "Glikadi beach is about a 10-minute drive from the comfortable Hotel Zafira Skala Rachoniou, which features a sunbathing area and sun loungers. Area attractions, such as Arriba Beach, are just 450 metres from the hotel.",
     phone: "+30 2593 081265",
     images: photos("hotel-zafira", 5),
+    video: "https://www.youtube.com/watch?v=rx1gwVBKeIo",
     offer: false,
   },
   {
@@ -122,6 +127,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 2593 071811",
     email: "info@kazaviti.gr",
     images: photos("kazaviti-hotel", 3),
+    video: "https://www.youtube.com/watch?v=KFCPpu6W3WU",
     offer: false,
   },
   {
@@ -134,6 +140,7 @@ export const HOTELS: Hotel[] = [
     phone: "+359 879 903045",
     email: "marti.thassos@gmail.com",
     images: photos("marti-resort", 5),
+    video: "https://www.youtube.com/watch?v=gFJA_Y-4uHY",
     offer: false,
   },
   {
@@ -170,6 +177,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 25930 71770",
     email: "info@socrates-plaza.gr",
     images: photos("socrates", 5),
+    video: "https://www.youtube.com/watch?v=AGpvim_36yE",
     offer: false,
   },
   {
@@ -182,6 +190,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 694 901 0138",
     email: "thassostreasure@gmail.com",
     images: photos("thassos-treasure", 4),
+    video: "https://www.youtube.com/watch?v=6oyai_2Bml8",
     offer: false,
   },
   {
@@ -194,6 +203,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 694 221 9375",
     email: "versastudios.thassos@gmail.com",
     images: photos("versa-studios", 6),
+    video: "https://www.youtube.com/watch?v=8Q3jquR8PL0",
     offer: false,
   },
   {
@@ -205,6 +215,7 @@ export const HOTELS: Hotel[] = [
     description: "Villa Aggeliki is surrounded by a large garden with fruit trees.",
     phone: "+30 694 913 7871",
     images: photos("villa-aggeliki", 5),
+    video: "https://www.youtube.com/watch?v=3_Q5H8uR2l8",
     offer: false,
   },
   {
@@ -229,6 +240,7 @@ export const HOTELS: Hotel[] = [
     phone: "+30 2593 071600",
     email: "book@inspiraboutique.com",
     images: photos("inspira", 4),
+    video: "https://www.youtube.com/watch?v=DTxRD3x2a9o",
     offer: false,
   },
 ];

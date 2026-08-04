@@ -32,6 +32,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 698 315 2415",
     email: "info@1905room.com",
     images: photos("1905", 4),
+    video: "https://www.youtube.com/watch?v=mQsP_viYgio",
   },
   {
     id: 2,
@@ -40,6 +41,7 @@ export const EXPERIENCES: Experience[] = [
     town: "Skala Rachoni",
     description: "Afenski Beauty & Wellness Studio.",
     images: photos("afenski", 4),
+    video: "https://www.youtube.com/watch?v=KiJiv3cjljI",
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 081426",
     email: "info@arriba.gr",
     images: photos("arriba", 4),
+    video: "https://www.youtube.com/watch?v=KVNm0rP-bAI",
   },
   {
     id: 4,
@@ -59,6 +62,7 @@ export const EXPERIENCES: Experience[] = [
     description: "Authentic Italian flavors, fresh pasta, wood-fired pizzas, and a unique atmosphere in the heart of Thassos.",
     phone: "+30 25930 53327",
     images: photos("bella-ciao", 4),
+    video: "https://www.youtube.com/watch?v=-jsybWkXIQE",
   },
   {
     id: 5,
@@ -69,6 +73,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 6987 205562",
     email: "info@calmabeachbar.com",
     images: photos("calma", 4),
+    video: "https://www.youtube.com/watch?v=bWeU11YomCs",
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 081508",
     email: "fragakismakis@gmail.com",
     images: photos("drosia-tavern", 4),
+    video: "https://www.youtube.com/watch?v=T8koXPRmFOQ",
   },
   {
     id: 7,
@@ -88,6 +94,7 @@ export const EXPERIENCES: Experience[] = [
     description: "Thassos port confectionery — sweets all over.",
     phone: "+30 2593 022505",
     images: photos("glikia-gonia", 4),
+    video: "https://www.youtube.com/watch?v=FznofJUaoNk",
   },
   {
     id: 8,
@@ -108,6 +115,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 071462",
     email: "magafinis123@gmail.com",
     images: photos("karibou", 4),
+    video: "https://www.youtube.com/watch?v=NdvlFPXhvEs",
   },
   {
     id: 10,
@@ -118,6 +126,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 111023",
     email: "lastrada699@gmail.com",
     images: photos("la-strada-69", 5),
+    video: "https://www.youtube.com/watch?v=CjY2XiGNlZA",
   },
   {
     id: 11,
@@ -126,6 +135,7 @@ export const EXPERIENCES: Experience[] = [
     town: "Skala Prinos",
     description: "Coffee shop and snack bar.",
     images: photos("loop", 4),
+    video: "https://www.youtube.com/watch?v=jvDXav_FrO4",
   },
   {
     id: 12,
@@ -136,6 +146,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 694 608 9276",
     email: "info@rentalthasos.gr",
     images: photos("mikes-rental", 5),
+    video: "https://www.youtube.com/watch?v=3cSe6LQP_fg",
   },
   {
     id: 13,
@@ -145,6 +156,7 @@ export const EXPERIENCES: Experience[] = [
     description: "New café-bistro in Skala Sotiros, Thassos — a modern, cosy spot for coffee, meals, and scenic views.",
     phone: "+30 2593 071791",
     images: photos("mojo", 5),
+    video: "https://www.youtube.com/watch?v=qBq1gmph2nA",
   },
   {
     id: 14,
@@ -164,6 +176,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 023833",
     email: "nice2meatyou@outlook.com",
     images: photos("nice2meatyou", 4),
+    video: "https://www.youtube.com/watch?v=A323mJiKME0",
   },
   {
     id: 16,
@@ -173,6 +186,7 @@ export const EXPERIENCES: Experience[] = [
     description: "Rental boats in Skala Sotiros, Thassos.",
     phone: "+30 6947 810929",
     images: photos("rent-a-boat", 4),
+    video: "https://www.youtube.com/watch?v=gJWexvQOIdU",
   },
   {
     id: 17,
@@ -182,6 +196,7 @@ export const EXPERIENCES: Experience[] = [
     description: "Located in the beautiful and quiet village of Skala Rachoni, Thassos, right next to a wonderful sandy beach with crystal-clear water and a charming view of mainland Greece.",
     phone: "+30 2593 081032",
     images: photos("sakis-tavern", 4),
+    video: "https://www.youtube.com/watch?v=tbcgD_gV540",
   },
   {
     id: 18,
@@ -192,6 +207,7 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 2593 091642",
     email: "socpap86@gmail.com",
     images: photos("socratis-tavern", 4),
+    video: "https://www.youtube.com/watch?v=FC7z8GM_wQg",
   },
   {
     id: 19,
@@ -202,5 +218,6 @@ export const EXPERIENCES: Experience[] = [
     phone: "+30 694 889 4444",
     email: "efstratiosstratidis@yahoo.gr",
     images: photos("stratos-tavern", 5),
+    video: "https://www.youtube.com/watch?v=pTvr3Q1XGls",
   },
 ];
