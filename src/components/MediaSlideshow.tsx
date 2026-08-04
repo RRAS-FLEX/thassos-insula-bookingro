@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images } from "lucide-react";
 import { parseVideoId, loadYouTubeApi, type YTPlayer, type YTPlayerState } from "@/lib/video";
 
-const SLIDE_INTERVAL_MS = 4000;
-
 /**
- * Plays `video` first (if set) via the YouTube JS API, then hands off to an
- * auto-advancing photo slideshow over `images` once the video ends — or goes
- * straight to the slideshow when there's no video. Used by both the hotel and
- * local-experience detail modals so this logic lives in exactly one place.
+ * Plays `video` first (if set) via the YouTube JS API, with a button to jump
+ * to the photo slideshow at any time (also happens automatically once the
+ * video ends) — or goes straight to the manually-navigated photo slideshow
+ * when there's no video. Used by both the hotel and local-experience detail
+ * modals so this logic lives in exactly one place.
  */
 export function MediaSlideshow({ images, video, title }: { images: string[]; video?: string; title: string }) {
   const videoId = video ? parseVideoId(video) : null;
@@ -46,14 +45,6 @@ export function MediaSlideshow({ images, video, title }: { images: string[]; vid
     };
   }, [showVideo, videoId]);
 
-  useEffect(() => {
-    if (showVideo || images.length <= 1) return;
-    const timer = setInterval(() => {
-      setSlideIdx((i) => (i + 1) % images.length);
-    }, SLIDE_INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, [showVideo, images.length]);
-
   const prevSlide = () => setSlideIdx((i) => (i - 1 + images.length) % images.length);
   const nextSlide = () => setSlideIdx((i) => (i + 1) % images.length);
 
@@ -70,6 +61,15 @@ export function MediaSlideshow({ images, video, title }: { images: string[]; vid
           allowFullScreen
           frameBorder={0}
         />
+        {images.length > 0 && (
+          <button
+            onClick={() => setShowVideo(false)}
+            className="absolute bottom-2 right-2 flex items-center gap-1.5 rounded-full bg-background/70 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur"
+          >
+            <Images className="h-3.5 w-3.5" />
+            View photos
+          </button>
+        )}
       </div>
     );
   }
