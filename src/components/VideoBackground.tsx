@@ -53,7 +53,7 @@ export function VideoBackground({ videoId: initialVideoId }: { videoId: string |
           frameBorder={0}
         />
       ) : null}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent via-45% to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(15,11,9,0.85)_90%)]" />
     </div>
   );

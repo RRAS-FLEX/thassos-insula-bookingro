@@ -15,7 +15,6 @@ export type Hotel = {
 export const TOWN_LIST = [
   "Aliki",
   "Astris",
-  "Chrysi Ammoudia",
   "Golden Beach",
   "Kallirachi",
   "Kazaviti",
