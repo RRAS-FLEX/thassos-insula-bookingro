@@ -56,7 +56,7 @@ export const HOTELS: Hotel[] = [
   {
     id: 2,
     name: "Alion Hotel",
-    town: "Prinos",
+    town: "Skala Prinos",
     stars: 0,
     priceFrom: 0,
     description: "In one of the most picturesque areas on the island of Thassos, in the pine-covered Dasyllio of Prinos, just a few steps away from the seaside, Alion complex welcomes those seeking a peaceful and relaxing summer vacation.",
@@ -119,7 +119,7 @@ export const HOTELS: Hotel[] = [
   {
     id: 7,
     name: "Kazaviti Hotel",
-    town: "Prinos",
+    town: "Skala Prinos",
     stars: 3,
     priceFrom: 0,
     description: "Exceptional half-board stays at a 3-star hotel for every traveler — from spontaneous weekend getaways to extended business trips.",
@@ -157,7 +157,7 @@ export const HOTELS: Hotel[] = [
   {
     id: 10,
     name: "Sentimento",
-    town: "Prinos",
+    town: "Skala Prinos",
     stars: 0,
     priceFrom: 0,
     description: "Sentimento is a brand-new hotel that shines with its unique traits. Enjoy incredible sunsets, rejuvenate your energy, and spend quality time with your loved ones, all while experiencing the tranquility of the island incorporated into each of the rooms.",
@@ -232,7 +232,7 @@ export const HOTELS: Hotel[] = [
   {
     id: 16,
     name: "Inspira Hotel",
-    town: "Prinos",
+    town: "Skala Prinos",
     stars: 0,
     priceFrom: 0,
     description: "Surrounded by pine trees with the backdrop of imposing mountains, Inspira welcomes you to experience unique hospitality and personal service — an oasis aimed only at adults.",
