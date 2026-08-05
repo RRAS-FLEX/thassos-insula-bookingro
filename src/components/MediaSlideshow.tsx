@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images, Play } from "lucide-react";
 import { parseVideoId, loadYouTubeApi, type YTPlayer, type YTPlayerState } from "@/lib/video";
 
 /**
@@ -108,6 +108,15 @@ export function MediaSlideshow({ images, video, title }: { images: string[]; vid
             ))}
           </div>
         </>
+      )}
+      {videoId && (
+        <button
+          onClick={() => setShowVideo(true)}
+          className="absolute bottom-2 right-2 flex items-center gap-1.5 rounded-full bg-background/70 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur"
+        >
+          <Play className="h-3.5 w-3.5" />
+          Watch video
+        </button>
       )}
     </div>
   );
