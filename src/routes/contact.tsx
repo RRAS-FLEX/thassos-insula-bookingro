@@ -40,6 +40,7 @@ function ContactPage() {
         <div className="space-y-4">
           <Info icon={Phone} title="Phone / WhatsApp" value={content.contact.phone} href={content.contact.phoneHref} />
           <Info icon={Mail} title="Email" value={content.contact.email} href={content.contact.emailHref} />
+          <Info icon={Mail} title="Email" value={content.contact.emailAlt} href={content.contact.emailAltHref} />
           <Info icon={MapPin} title="Address" value={content.contact.address} />
         </div>
 
@@ -47,7 +48,7 @@ function ContactPage() {
           <div className="overflow-hidden rounded-2xl border border-border/60 bg-card">
             <iframe
               title={copy.mapHeading}
-              src={`https://www.google.com/maps?q=${encodeURIComponent(content.contact.address)}&z=15&output=embed`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(content.contact.mapQuery)}&z=15&output=embed`}
               className="h-64 w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

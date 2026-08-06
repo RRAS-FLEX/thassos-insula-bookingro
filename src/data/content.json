@@ -32,7 +32,10 @@
     "phoneHref": "tel:+306945424938",
     "email": "thassos.tourism.drone@gmail.com",
     "emailHref": "mailto:thassos.tourism.drone@gmail.com",
-    "address": "Skala Prinou 64010, Thassos, Greece"
+    "emailAlt": "info@thassos-island-booking.com",
+    "emailAltHref": "mailto:info@thassos-island-booking.com",
+    "address": "Skala Prinou 64010, Thassos, Greece",
+    "mapQuery": "Thassos Treasure Hotel, Skala Prinos, Thassos, Greece"
   },
   "social": {
     "facebook": "https://www.facebook.com/share/g/1P5rTK8qh1/?mibextid=wwXIfr",
