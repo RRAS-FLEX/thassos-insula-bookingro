@@ -40,7 +40,6 @@ function ContactPage() {
         <div className="space-y-4">
           <Info icon={Phone} title="Phone / WhatsApp" value={content.contact.phone} href={content.contact.phoneHref} />
           <Info icon={Mail} title="Email" value={content.contact.email} href={content.contact.emailHref} />
-          <Info icon={Mail} title="Email" value={content.contact.emailAlt} href={content.contact.emailAltHref} />
           <Info icon={MapPin} title="Address" value={content.contact.address} />
         </div>
 

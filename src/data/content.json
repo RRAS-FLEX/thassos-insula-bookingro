@@ -23,17 +23,15 @@
   ],
   "footer": {
     "description": "Accommodation booking across Thassos Island — hotels, studios and villas curated by locals.",
-    "email": "thassos.tourism.drone@gmail.com",
+    "email": "info@thassos-island-booking.com",
     "phone": "+30 6945424938",
     "address": "Skala Prinou 64010, Thassos, Greece"
   },
   "contact": {
     "phone": "+30 6945424938",
     "phoneHref": "tel:+306945424938",
-    "email": "thassos.tourism.drone@gmail.com",
-    "emailHref": "mailto:thassos.tourism.drone@gmail.com",
-    "emailAlt": "info@thassos-island-booking.com",
-    "emailAltHref": "mailto:info@thassos-island-booking.com",
+    "email": "info@thassos-island-booking.com",
+    "emailHref": "mailto:info@thassos-island-booking.com",
     "address": "Skala Prinou 64010, Thassos, Greece",
     "mapQuery": "Thassos Treasure Hotel, Skala Prinos, Thassos, Greece"
   },
@@ -144,7 +142,7 @@
         {
           "heading": "Contact us",
           "body": [
-            "Questions about this policy can be sent to thassos.tourism.drone@gmail.com."
+            "Questions about this policy can be sent to info@thassos-island-booking.com."
           ]
         }
       ],
@@ -205,7 +203,7 @@
         {
           "heading": "Contact us",
           "body": [
-            "Questions about these terms can be sent to thassos.tourism.drone@gmail.com."
+            "Questions about these terms can be sent to info@thassos-island-booking.com."
           ]
         }
       ],
